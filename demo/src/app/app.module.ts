@@ -11,6 +11,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {MarkdownModule} from 'ngx-markdown';
+import {NgxLinkifyjsService} from 'ngx-linkifyjs';
 import {environment} from '../environments/environment';
 
 @NgModule({
@@ -30,7 +31,8 @@ import {environment} from '../environments/environment';
     HttpClientModule,
     AppRoutingModule,
     AppSharedModule,
-    HomeModule
+    HomeModule,
+    NgxLinkifyjsService
   ],
   providers: [],
   bootstrap: [AppComponent]

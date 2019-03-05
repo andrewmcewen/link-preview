@@ -2,7 +2,7 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {Link} from 'ngx-linkifyjs';
+import {Link, NgxLinkifyjsService} from 'ngx-linkifyjs';
 import {LinkPreview} from '../..';
 
 @Injectable()
@@ -15,8 +15,13 @@ export class MatLinkPreviewService {
 
   links: Link[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private linkifyService: NgxLinkifyjsService) {
     this.onLinkFound.subscribe((links: Array<Link>) => this.links = links);
+  }
+
+  manuallySetLink(link: string) {
+    const links: Link[] = this.linkifyService.find(link);
+    this.onLinkFound.emit(links);
   }
 
   fetchLink(url: string): Observable<LinkPreview> {

@@ -1,8 +1,9 @@
-import {async, inject, TestBed} from '@angular/core/testing';
+import { async, inject, TestBed } from '@angular/core/testing';
 
-import {MatLinkPreviewService} from './mat-link-preview.service';
-import {HttpClientModule, HttpRequest} from '@angular/common/http';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
+import { MatLinkPreviewService } from './mat-link-preview.service';
+import { HttpClientModule, HttpRequest } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { NgxLinkifyjsService } from 'ngx-linkifyjs';
 
 describe('MatLinkPreviewService', () => {
 
@@ -10,7 +11,8 @@ describe('MatLinkPreviewService', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientModule,
-        HttpClientTestingModule],
+        HttpClientTestingModule,
+        NgxLinkifyjsService],
       providers:
         [
           MatLinkPreviewService

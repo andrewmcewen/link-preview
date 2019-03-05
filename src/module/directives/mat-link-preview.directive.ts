@@ -18,11 +18,6 @@ export class MatLinkPreviewDirective implements OnInit {
     this._init();
   }
 
-  public manuallySetLink(link: string) {
-    let links = [link];
-    this.linkPreviewService.onLinkFound.emit(links);
-  }
-
   private _init() {
     fromEvent(document, 'input')
       .pipe(

@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Link } from 'ngx-linkifyjs';
 import { MatLinkPreviewService } from '../../service/mat-link-preview.service';
-import { MatLinkPreviewDirective } from '../../directives/mat-link-preview.directive';
 
 @Component({
   selector: 'mat-link-preview-container',
@@ -17,8 +16,8 @@ export class MatLinkPreviewContainerComponent {
   @Input() showLoadingsProgress = true;
   @Input() link: string;
 
-  constructor(public linkPreviewService: MatLinkPreviewService, public linkPreviewDirective: MatLinkPreviewDirective) {
-    this.linkPreviewDirective.manuallySetLink(this.link);
+  constructor(public linkPreviewService: MatLinkPreviewService) {
+    this.linkPreviewService.manuallySetLink(this.link);
   }
 
   trackLinks(index: number, link: Link) {
